@@ -8,7 +8,7 @@ layout: nil
   {% for item in site.data.map-markers %}
       {
         "id"    : "{{ item.id }}",
-        "url"     : "{{ item.url }}",
+        "title"     : "{{ item.title }}",
         "x"     : "{{ item.x }}",
         "y"  : "{{ item.y }}",
         "comment"  : "{{ item.comment }}",
