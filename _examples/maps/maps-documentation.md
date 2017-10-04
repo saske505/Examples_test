@@ -16,8 +16,10 @@ Nr | Description | Status
 1 | Render map with leaflet.js | Done
 2 | Add markers from data to map | Done
 3 | Markers kan be added with input field (location should equal this) |
+{:.table}
 
-* Markers have the following fields
+## Markers have the following fields
+
   - Position
     - x
     - y
