@@ -5,12 +5,14 @@ layout: nil
 ---
 
   [
-  {% for post in site.data.map-markers %}
+  {% for item in site.data.map-markers %}
       {
-        "id"    : "{{ post.id }}",
-        "url"     : "{{ post.url }}",
-        "x"     : "{{ post.x }}",
-        "y"  : "{{ post.y }}"
+        "id"    : "{{ item.id }}",
+        "url"     : "{{ item.url }}",
+        "x"     : "{{ item.x }}",
+        "y"  : "{{ item.y }}",
+        "comment"  : "{{ item.comment }}",
+        "date"  : "{{ item.date }}"
       } {% if forloop.last %}{% else %},{% endif %}
   {% endfor %}
   ]
