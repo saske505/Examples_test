@@ -1,6 +1,6 @@
 ---
 title: Interactive map documentation
-tag: Experimental
+tag: Maps
 ---
 
 This is a idea for a App
