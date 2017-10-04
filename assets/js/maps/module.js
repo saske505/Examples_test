@@ -25,7 +25,26 @@ var App = (function () {
     var _db = "Locations";
     var _url = "/json/maps.json";
     var items = [];
+    var db = localStorage.getItem('db');
 
+    var setupDb = function (db) {
+        
+        if (db === null) {
+            _api();            
+            localStorage.setItem('db', JSON.stringify(items));
+        } else if (db === "[]") {
+            _api(); 
+            localStorage.setItem('db', JSON.stringify(items));
+           
+        } else {
+            console.log("Local database already exist.");
+        }
+    }
+
+    var getDb = function (val) {
+        this.val = db;
+        return JSON.parse(val);
+    }
 
     var _api = function () {
         var url = _url;
@@ -63,8 +82,7 @@ var App = (function () {
                 fillColor: '#f03',
                 fillOpacity: 0.5,
                 radius: 500
-            }).bindPopup(array[i].title)
-              .addTo(mymap);
+            }).addTo(mymap).bindPopup(array[i].title);
         }
 
     }
@@ -73,7 +91,9 @@ var App = (function () {
         result: result,
         updateData: updateData,
         items: items,
-        makeMap : makeMap
+        makeMap: makeMap,
+        setupDb: setupDb,
+        getDb : getDb
     }
 
 })();
