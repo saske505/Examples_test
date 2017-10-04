@@ -1,0 +1,16 @@
+---
+title: Interactive map json
+tag: Experimental
+layout: nil
+---
+
+  [
+  {% for post in site.data.map-markers %}
+      {
+        "id"    : "{{ post.id }}",
+        "url"     : "{{ post.url }}",
+        "x"     : "{{ post.x }}",
+        "y"  : "{{ post.y }}"
+      } {% if forloop.last %}{% else %},{% endif %}
+  {% endfor %}
+  ]
