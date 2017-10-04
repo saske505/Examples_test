@@ -1,3 +1,7 @@
+---
+title: Website developer's documentation
+layout: default
+---
 
 # Readme
 
