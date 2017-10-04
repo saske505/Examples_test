@@ -14,3 +14,5 @@ http://spindrift-lily.cloudvent.net/examples
 [View documentation](/examples/experimental/maps-documentation/)
 
 [View example](/examples/experimental/maps-example/)
+
+[View json data](/examples/experimental/maps-json/)
