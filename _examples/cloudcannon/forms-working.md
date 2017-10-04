@@ -1,6 +1,6 @@
 ---
 title: Form working examples
-tag: cloudcannon
+tag: Cloudcannon
 ---
 
 <div class="row">
