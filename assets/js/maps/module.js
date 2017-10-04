@@ -8,6 +8,9 @@ var App = (function () {
 
 
     var result = function (val) {
+        if (val === "_name") {
+            val = _name;
+        }
         return val;
     }
 
