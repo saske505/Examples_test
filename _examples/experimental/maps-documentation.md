@@ -1,5 +1,5 @@
 ---
-title: Interactive map
+title: Interactive map documentation
 tag: Experimental
 ---
 
