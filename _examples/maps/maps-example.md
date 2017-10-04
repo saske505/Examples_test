@@ -1,6 +1,6 @@
 ---
 title: Interactive map example
-tag: Experimental
+tag: Maps
 ---
 
 code goes here

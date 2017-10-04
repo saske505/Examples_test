@@ -11,8 +11,8 @@ http://spindrift-lily.cloudvent.net/examples
 
 ## Currently working on map experiment
 
-[View documentation](/examples/experimental/maps-documentation/)
+[View documentation](/examples/maps/maps-documentation/)
 
-[View example](/examples/experimental/maps-example/)
+[View example](/examples/maps/maps-example/)
 
-[View json data](/examples/experimental/maps-json/)
+[View json data](/json/maps.json)

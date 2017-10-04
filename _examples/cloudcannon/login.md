@@ -1,6 +1,6 @@
 ---
 title: Login links for cloudcannon
-tag: cloudcannon
+tag: Cloudcannon
 ---
 
 # CloudCannon login and edit
