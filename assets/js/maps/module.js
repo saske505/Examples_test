@@ -5,7 +5,14 @@
 var App = (function () {
 
     var _name = "Map functions";
+    var _db = "Locations";
+    var _url = "/json/maps.json";
 
+    var _api = function (url) {
+        $.getJSON(url, function (data) {
+            return data;
+        });
+    }
 
     var result = function (val) {
         if (val === "_name") {
@@ -14,8 +21,14 @@ var App = (function () {
         return val;
     }
 
+    var updateData = function () {
+        var data = App._api(url);
+        App.result(data);
+    }
+    
     return {
-        result : result
+        result: result,
+        updateData : updateData
     }
 
 })();
