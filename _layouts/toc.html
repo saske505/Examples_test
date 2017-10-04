@@ -1,0 +1,22 @@
+---
+layout: sidebar
+---
+
+<div class="docs-content card pl-2">
+
+  {{ content | toc }}
+  <a class="docs-top" style="display: none;" href="#">Back to top</a>
+</div>
+
+<script src="/assets/js/custom/toc.js"></script>
+
+<script>
+  // execute/clear BS loaders for docs
+  // window.onload = function () {
+  //   $(function(){
+  //     if (window.BS&&window.BS.loader&&window.BS.loader.length) {
+  //       while(BS.loader.length){(BS.loader.pop())()}
+  //     }
+  //   })
+  // }
+</script>

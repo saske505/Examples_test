@@ -1,0 +1,27 @@
+---
+---
+
+@import "toolkit.scss";
+
+body {
+  // border: solid 5px red !important;
+};
+
+html {
+  overflow-y: scroll;
+}
+
+#example{
+  background-color: #f3f3f3;
+  // overflow: scroll;
+  // display: block;
+  height: 400px;
+  // width: 100%;
+}
+
+
+.dataTable th {
+      //  float:left;
+       background-color: #f39c12 !important;
+       border-color:#e67e22;
+}

@@ -1,0 +1,78 @@
+---
+title: DataTable 1
+permalink: /datatable-1/
+tag: Experimental
+layout: default
+---
+		<P>
+			A list of students
+		</P>
+
+		<button onclick="highlight()" class="btn btn-primary btn-sm">Highlight bellow 50</button>
+
+		<table id="example" class="display" width="100%">
+		</table>
+
+<style>
+.red {
+	background-color: red;
+}
+.green {
+	background-color: green;
+}
+.yellow {
+	background-color: yellow;
+}
+
+</style>
+
+<script>
+
+window.onload = function(){
+
+ var dataSet = [
+	 {% for item in site.data.students %}
+		 [
+			 {% for item2 in item %}
+			 "{{item2[1]}}"
+			 {% unless forloop.last %},{% endunless %}
+			 {% endfor %}
+		 ]
+		 {% unless forloop.last %},{% endunless %}
+	 {% endfor %}
+ ];
+
+
+	 $('#example').DataTable( {
+			 data: dataSet,
+			 columns: [
+				 {% for item in site.data.students| limit: 1 %}
+						 {% for item2 in item %}
+							 { title: "{{item2[0]}}" }
+						 	{% unless forloop.last %},{% endunless %}
+						 {% endfor %}
+				 {% endfor %}
+			 ]
+	 } );
+
+};
+
+// Add class to table td if it has value
+function highlight() {
+	$('#example td').each(function() {
+			if ($(this).text() < '50') {
+				$(this).addClass('red');
+			} else if ($(this).text() === '50') {
+				$(this).addClass('yellow');
+			} else {
+				$(this).removeClass('red');
+			}
+		});
+}
+
+</script>
+
+
+<script src="/assets/js/datatable/jquery.dataTables.min.js"></script>
+<script src="/assets/js/datatable/dataTables.bootstrap4.min.js"></script>
+<script src="/assets/js/datatable/custom.js"></script>

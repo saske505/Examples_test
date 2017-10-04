@@ -1,0 +1,67 @@
+---
+tag: D3.js
+---
+
+<div id="info">
+  info
+</div>
+
+<div id="d3">
+
+</div>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<style>
+#info {
+  position: absolute;
+  top: 10px;
+  right: 10px
+}
+
+.active {
+  stroke: #000;
+  stroke-width: 2px;
+}
+</style>
+
+<script>
+
+// Create container
+var svgContainer = d3.select("#d3")
+                     .append("svg")
+                     .attr("width", 200)
+                     .attr("height", 200);
+
+// Put something in the container
+var svgShapes = svgContainer.append("circle")
+                            .attr("cx", 30)
+                            .attr("cy", 30)
+                            .attr("r", 20)
+                            .style("color", "red");
+
+
+
+var select =  svgShapes.selectAll("circle")
+                          .style("color", "red")
+                          .call(d3.drag()
+                              .on("start", dragstarted)
+                              .on("drag", dragged)
+                              .on("end", dragended));
+
+
+                              function dragstarted(d) {
+                                d3.select(this).raise().classed("active", true);
+                                console.log('Drag started');
+                              }
+
+                              function dragged(d) {
+                                d3.select(this).attr("cx", d.x = d3.event.x).attr("cy", d.y = d3.event.y);
+
+                              }
+
+                              function dragended(d) {
+                                d3.select(this).classed("active", false);
+                              }
+
+</script>

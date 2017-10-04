@@ -1,0 +1,48 @@
+gems:
+  - jekyll-toc
+
+# Site settings
+title: Boilerplate 2
+email: heinrich@justweb.co.za
+description: > # this means to ignore newlines until "baseurl:"
+  Starter template
+baseurl: ""
+url: "" # the base hostname & protocol for your site
+permalink: :categories/:title/
+
+# Build settings
+markdown: kramdown
+
+defaults:
+  - scope:
+      path: "" # an empty string here means all files in the project
+      type: "posts" # previously `post` in Jekyll 2.2.
+    values:
+      layout: "default"
+      date: 2015-01-01 00:00:00
+      permalink: /blog/:title/
+  # - scope:
+  #     path: "" # an empty string here means all files in the project
+  #     type: "pages"
+  #   values:
+  #     layout: "default"
+  #     menu: 0
+  - scope:
+      path: ""
+      type: examples
+    values:
+      layout: "sidebar"
+
+
+collections:
+  examples:
+    output: true
+
+sass:
+    sass_dir: _sass
+
+# page_gen:
+#   - data: students
+#     template: default
+#     name: unique
+#     dir: students

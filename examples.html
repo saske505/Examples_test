@@ -1,0 +1,40 @@
+---
+title: examples
+layout: default
+---
+
+{% assign uniq_tags = site.examples
+                  | map: 'tags'
+                  | join: ","
+                  | split: ","
+                  | uniq %}
+
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Category</th>
+      <th>Pages</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in uniq_tags %}
+    <tr>
+      <th scope="row">{{ forloop.index }}</th>
+      <td><h5>{{ item }}</h5></td>
+      <td>
+      {% for sub in site.examples %}
+          {% if sub.tag contains item %}
+              <a href="{{ sub.url }}">{{ sub.title }}</a> <br />
+          {% endif %}
+      {% endfor %}
+    </td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
