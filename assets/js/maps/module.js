@@ -15,9 +15,45 @@ $(document).ready(function () {
     setTimeout(function () {
         App.updateData();
     }, 1000);
-
-
 });
+
+
+
+
+var getType = function (val) {
+    L.icon = function (options) {
+        return new L.Icon(options);
+    };
+    var typeIcon = L.Icon.extend({
+        options: {
+            shadowUrl: 'test.png',
+            iconSize: [25, 25],
+            shadowSize: [50, 64],
+            iconAnchor: [22, 94],
+            shadowAnchor: [4, 62],
+            popupAnchor: [-3, -76]
+        }
+    });
+    var greenIcon = new typeIcon({ iconUrl: '../assets/img/green.png' }),
+        redIcon = new typeIcon({ iconUrl: '../assets/img/red.png' }),
+        orangeIcon = new typeIcon({ iconUrl: '../assets/img/orange.png' });
+
+    this.val = val;
+    if (val === "Murder") {
+        val = redIcon;
+    } else if (val === "Robbery") {
+        val = greenIcon;
+    } else if (val === "Theft") {
+        val = orangeIcon;
+    } else if (val === "Assualt") {
+        val = redIcon;
+    } else if (val === "Vandalism") {
+        val = greenIcon;
+    } else if (val === "Corruption") {
+        val = redIcon;
+    }
+    return val;
+};
 
 var App = (function () {
 
@@ -74,15 +110,14 @@ var App = (function () {
     }
 
     var makeMap = function () {
-        
+       
+       
         var array = App.items;
         for (var i = 0; i < array.length; i++) {
-            var circle = L.circle([array[i].x, array[i].y], {
-                color: 'red',
-                fillColor: '#f03',
-                fillOpacity: 0.5,
-                radius: 500
-            }).addTo(mymap).bindPopup(array[i].title);
+            var icon = getType(array[i].type);
+            var circle = L.marker([array[i].x, array[i].y], {
+                icon: icon
+            }).addTo(mymap).bindPopup(array[i].title + "type : " + array[i].type);
         }
 
     }
