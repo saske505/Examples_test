@@ -63,7 +63,8 @@ var App = (function () {
                 fillColor: '#f03',
                 fillOpacity: 0.5,
                 radius: 500
-            }).addTo(mymap);
+            }).bindPopup(array[i].title)
+              .addTo(mymap);
         }
 
     }
