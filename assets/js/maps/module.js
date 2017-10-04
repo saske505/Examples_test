@@ -25,10 +25,10 @@ var App = (function () {
     var _db = "Locations";
     var _url = "/json/maps.json";
     var items = [];
-    var db = localStorage.getItem('db');
+    
 
-    var setupDb = function (db) {
-        
+    var setupDb = function () {
+       var db = localStorage.getItem('db');
         if (db === null) {
             _api();            
             localStorage.setItem('db', JSON.stringify(items));
