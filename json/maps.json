@@ -12,7 +12,7 @@ layout: nil
         "x"     : "{{ item.x }}",
         "y"  : "{{ item.y }}",
         "comment"  : "{{ item.comment }}",
-        "date"  : "{{ item.date }}",
+        "date"  : "{{ item.date | date: "%b %d, %Y" }}",
         "type" : "{{ item.type }}"
       } {% if forloop.last %}{% else %},{% endif %}
   {% endfor %}
