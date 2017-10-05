@@ -1,6 +1,6 @@
 ﻿//Main application module for  accessing map functions
 
-//example 
+//example
 
 var mymap;
 $(document).ready(function () {
@@ -26,7 +26,7 @@ var getType = function (val) {
     };
     var typeIcon = L.Icon.extend({
         options: {
-            shadowUrl: 'test.png',
+            shadowUrl: '/assets/img/pins/shadow.png',
             iconSize: [25, 25],
             shadowSize: [50, 64],
             iconAnchor: [22, 94],
@@ -34,9 +34,9 @@ var getType = function (val) {
             popupAnchor: [-3, -76]
         }
     });
-    var greenIcon = new typeIcon({ iconUrl: '../assets/img/green.png' }),
-        redIcon = new typeIcon({ iconUrl: '../assets/img/red.png' }),
-        orangeIcon = new typeIcon({ iconUrl: '../assets/img/orange.png' });
+    var greenIcon = new typeIcon({ iconUrl: '/assets/img/pins/green.png' }),
+        redIcon = new typeIcon({ iconUrl: '/assets/img/pins/red.png' }),
+        orangeIcon = new typeIcon({ iconUrl: '/assets/img/pins/orange.png' });
 
     this.val = val;
     if (val === "Murder") {
@@ -61,17 +61,17 @@ var App = (function () {
     var _db = "Locations";
     var _url = "/json/maps.json";
     var items = [];
-    
+
 
     var setupDb = function () {
        var db = localStorage.getItem('db');
         if (db === null) {
-            _api();            
+            _api();
             localStorage.setItem('db', JSON.stringify(items));
         } else if (db === "[]") {
-            _api(); 
+            _api();
             localStorage.setItem('db', JSON.stringify(items));
-           
+
         } else {
             console.log("Local database already exist.");
         }
@@ -87,14 +87,14 @@ var App = (function () {
         items.length = 0;
         $.getJSON(url, {
             format: "json"
-        }).done(function (data) {          
+        }).done(function (data) {
 
             $.each(data, function (key, val) {
                 items.push(val);
             });
-           
+
             });
-        return items;        
+        return items;
     }
 
     var result = function (val) {
@@ -110,8 +110,8 @@ var App = (function () {
     }
 
     var makeMap = function () {
-       
-       
+
+
         var array = App.items;
         for (var i = 0; i < array.length; i++) {
             var icon = getType(array[i].type);
@@ -121,7 +121,7 @@ var App = (function () {
         }
 
     }
-    
+
     return {
         result: result,
         updateData: updateData,
@@ -132,6 +132,3 @@ var App = (function () {
     }
 
 })();
-
-
-
