@@ -27,9 +27,9 @@ var getType = function (val) {
     var typeIcon = L.Icon.extend({
         options: {
             shadowUrl: '/assets/img/pins/shadow.png',
-            iconSize: [25, 25],
-            shadowSize: [50, 64],
-            iconAnchor: [22, 94],
+            iconSize: [50, 50],
+            shadowSize: [50, 69],
+            iconAnchor: [25, 0],
             shadowAnchor: [4, 62],
             popupAnchor: [-3, -76]
         }
