@@ -3,6 +3,11 @@
 
 @import "toolkit.scss";
 
+
+
+
+
+
 body {
   // border: solid 5px red !important;
 };
@@ -10,15 +15,6 @@ body {
 html {
   overflow-y: scroll;
 }
-
-#example{
-  background-color: #f3f3f3;
-  // overflow: scroll;
-  // display: block;
-  height: 400px;
-  // width: 100%;
-}
-
 
 .dataTable th {
       //  float:left;
@@ -31,10 +27,10 @@ html {
 }
 
 a:hover {
-    transition:all 0.3s ease;
-    color: red;
+    // transition:all 0.3s ease;
+    // color: red;
 }
 
 a {
-  transition:all 0.3s ease;
+  // transition:all 0.3s ease;
 }

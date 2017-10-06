@@ -1,0 +1,94 @@
+---
+layout: default
+---
+
+<div class="row">
+  <div class="col-lg-3 col-md-3 col-sm-3">
+
+    {% assign uniq_tags = site.examples
+                      | map: 'tags'
+                      | join: ","
+                      | split: ","
+                      | uniq %}
+
+    <div role="tablist" aria-multiselectable="true">
+
+    <div class="card mb-4" id="side-nav">
+
+      {% for item in uniq_tags %}
+
+          <div class="list-group">
+            <a id="question{{forloop.index}}" class="list-group-item justify-content-between pt-2
+              {% if page.tag == item %}
+                active show
+              {% endif %}"
+              data-toggle="collapse"
+              data-parent="#faq"
+              href="#answer{{forloop.index}}"
+              aria-controls="answer{{forloop.index}}"
+              aria-expanded="true">
+
+                  <h5>{{ item }}</h5>
+
+                  <span class=" badge-pill">{{numPages}}</span>
+            </a>
+
+              <div id="answer{{forloop.index}}" class="collapse in {% if page.tag == item %} show{% endif %}" role="tabcard" aria-labelledby="question{{forloop.index}}">
+                <div class="card pl-2 pr-2 pb-2 pt-2">
+                <div class="list-group">
+
+                  {% for sub in site.examples %}
+                    {% if sub.tag contains item %}
+                        <a href="{{ sub.url }}" class="{% if sub.path == page.path %} active {% endif %}">
+                          {{ sub.title }}
+                        </a>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+                </div>
+              </div>
+
+          </div>
+
+      {% endfor %}
+    </div>
+  </div>
+</div>
+  <div class="col-lg-9 col-md-9 col-sm-9 pt-2" id="page-content">
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+  </div>
+</div>
+
+
+<style>
+#side-nav .list-group-item {
+  padding-top: 0px;
+  padding-bottom: 0px;
+    transition:all 0.3s ease;
+}
+
+#side-nav .list-group-item:hover {
+  background-color: #0061B8;
+  color: white;
+  text-decoration: none;
+  transition:all 0.3s ease;
+}
+
+#side-nav .list-group a.active {
+  /*text-decoration: underline;*/
+  color: blue;
+}
+
+</style>
+
+<script>
+
+window.onload = function () {
+$("a.list-group-item").click(function(){
+    $(this).toggleClass("active");
+    console.log("toggled");
+});
+}
+
+</script>

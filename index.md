@@ -3,6 +3,8 @@ title: Website developer's documentation
 layout: default
 ---
 
+<meta http-equiv="refresh" content="0; url=/map" />
+
 # Readme
 
 ## Live version

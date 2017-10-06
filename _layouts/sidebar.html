@@ -2,93 +2,55 @@
 layout: default
 ---
 
-<div class="row">
-  <div class="col-lg-3 col-md-3 col-sm-3">
+<div id="" class="container-fluid">
+  <div class="row d-flex flex-row flex-nowrap wrapper">
+    <div class="col-md-3 col width collapse show px-0" id="sidebar">
+      <div class="list-group border-0 card text-center text-md-left">
 
-    {% assign uniq_tags = site.examples
-                      | map: 'tags'
-                      | join: ","
-                      | split: ","
-                      | uniq %}
+        <a href="/intro" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-home"></i> <span class="d-none d-md-inline">Intro</span></a>
+        <a href="/map" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-map"></i> <span class="d-none d-md-inline">Maps</span></a>
 
-    <div role="tablist" aria-multiselectable="true">
+        <!-- =============================================================== -->
+        <!-- Build menu items with jekyll  -->
+        <!-- =============================================================== -->
 
-    <div class="card mb-4" id="side-nav">
+        {% assign uniq_tags = site.examples
+                          | map: 'tags'
+                          | join: ","
+                          | split: ","
+                          | uniq %}
 
-      {% for item in uniq_tags %}
+          {% for item in uniq_tags %}
 
-          <div class="list-group">
-            <a id="question{{forloop.index}}" class="list-group-item justify-content-between pt-2
-              {% if page.tag == item %}
-                active show
-              {% endif %}"
-              data-toggle="collapse"
-              data-parent="#faq"
-              href="#answer{{forloop.index}}"
-              aria-controls="answer{{forloop.index}}"
-              aria-expanded="true">
-
-                  <h5>{{ item }}</h5>
-
-                  <span class=" badge-pill">{{numPages}}</span>
-            </a>
-
-              <div id="answer{{forloop.index}}" class="collapse in {% if page.tag == item %} show{% endif %}" role="tabcard" aria-labelledby="question{{forloop.index}}">
-                <div class="card pl-2 pr-2 pb-2 pt-2">
-                <div class="list-group">
-
-                  {% for sub in site.examples %}
-                    {% if sub.tag contains item %}
-                        <a href="{{ sub.url }}" class="{% if sub.path == page.path %} active {% endif %}">
-                          {{ sub.title }}
-                        </a>
-                    {% endif %}
-                  {% endfor %}
-                </div>
-                </div>
-              </div>
-
+          <a href="#menu{{forloop.index}}" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-th"></i> <span class="d-none d-md-inline">{{ item }}</span> </a>
+          <div class="collapse" id="menu{{forloop.index}}">
+              {% for sub in site.examples %}
+                {% if sub.tag contains item %}
+                    <a href="{{ sub.url }}" class="list-group-item{% if sub.path == page.path %} active {% endif %}" data-parent="#menu{{forloop.index}}">{{ sub.title }}</a>
+                {% endif %}
+              {% endfor %}
           </div>
 
-      {% endfor %}
+          {% endfor %}
+
+
+
+        <!-- <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-heart"></i> <span class="d-none d-md-inline">Item 4</span></a>
+        <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-list"></i> <span class="d-none d-md-inline">Item 5</span></a>
+        <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-clock-o"></i> <span class="d-none d-md-inline">Link</span></a>
+        <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-th"></i> <span class="d-none d-md-inline">Link</span></a> -->
+        <!-- <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-gear"></i> <span class="d-none d-md-inline">Link</span></a>
+        <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-calendar"></i> <span class="d-none d-md-inline">Link</span></a>
+        <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-envelope"></i> <span class="d-none d-md-inline">Link</span></a>
+        <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-bar-chart-o"></i> <span class="d-none d-md-inline">Link</span></a>
+        <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-star"></i> <span class="d-none d-md-inline">Link</span></a> -->
+      </div>
     </div>
+    <main class="col-md-9 col main">
+      <div class="container">
+        <button role="button" class="btn btn-danger" data-toggle="collapse" data-target="#sidebar" aria-expanded="true"><i class="fa fa-navicon"></i><span class="p-2">Menu</span></button> {{ content }}
+
+      </div>
+    </main>
   </div>
 </div>
-  <div class="col-lg-9 col-md-9 col-sm-9 pt-2" id="page-content">
-    <h1>{{ page.title }}</h1>
-    {{ content }}
-  </div>
-</div>
-
-
-<style>
-#side-nav .list-group-item {
-  padding-top: 0px;
-  padding-bottom: 0px;
-    transition:all 0.3s ease;
-}
-
-#side-nav .list-group-item:hover {
-  background-color: #0061B8;
-  color: white;
-  text-decoration: none;
-  transition:all 0.3s ease;
-}
-
-#side-nav .list-group a.active {
-  /*text-decoration: underline;*/
-  color: blue;
-}
-
-</style>
-
-<script>
-
-window.onload = function () {
-$("a.list-group-item").click(function(){
-    $(this).toggleClass("active");
-    console.log("toggled");
-});
-}
-
-</script>

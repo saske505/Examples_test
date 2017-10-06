@@ -11,7 +11,7 @@ $docs-sidebar-gutter: 30px;
 
 body {
   overflow-x: hidden;
-  padding-bottom: 40px;
+  // padding-bottom: 40px;
 }
 
 
@@ -155,4 +155,4 @@ body {
   @include media-breakpoint-up(md) {
     padding-right: ($docs-sidebar-width + $docs-sidebar-gutter + ($grid-gutter-width-base / 2));
   }
-}   
+}
