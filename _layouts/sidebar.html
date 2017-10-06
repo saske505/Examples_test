@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div id="" class="container-fluid">
-  <div class="row d-flex flex-row flex-nowrap wrapper">
+  <div class="row d-flex flex-row flex-nowrap wrapper" id="sidebar-container">
     <div class="col-md-3 col width collapse show px-0" id="sidebar">
       <div class="list-group border-0 card text-center text-md-left">
 
@@ -48,7 +48,11 @@ layout: default
     </div>
     <main class="col-md-9 col main">
       <div class="container">
-        <button role="button" class="btn btn-danger" data-toggle="collapse" data-target="#sidebar" aria-expanded="true"><i class="fa fa-navicon"></i><span class="p-2">Menu</span></button> {{ content }}
+        <button role="button" class="btn btn-danger" data-toggle="collapse" data-target="#sidebar" aria-expanded="true"><i class="fa fa-navicon"></i><span class="p-2">Menu</span></button>
+
+
+          {{ content }}
+        
 
       </div>
     </main>

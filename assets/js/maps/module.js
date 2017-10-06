@@ -28,10 +28,10 @@ var getType = function (val) {
         options: {
             shadowUrl: '/assets/img/pins/shadow.png',
             iconSize: [50, 50],
-            shadowSize: [50, 69],
-            iconAnchor: [25, 0],
-            shadowAnchor: [4, 62],
-            popupAnchor: [-3, -76]
+            shadowSize: [25, 35],
+            iconAnchor: [25, 50],
+            shadowAnchor: [0, 35],
+            popupAnchor: [-3, -6]
         }
     });
     var greenIcon = new typeIcon({ iconUrl: '/assets/img/pins/green.png' }),
